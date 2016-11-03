@@ -112,7 +112,7 @@ section.bg_green_light .title {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 20;
+    z-index: 5;
     background: rgba(255,255,255,.7);
     transition: .5s;
 }
@@ -130,9 +130,25 @@ section.bg_green_light .title {
 }
 
 .nav_wrapper {
+    position: absolute;
     clear: both;
     width: 100%;
 }
+.fixed.nav_wrapper {
+    display: none;
+    position: fixed;
+    z-index: 9;
+    background: rgba(0,0,0,.8);
+    opacity: .9;
+    transition:1.4s;
+}
+.fixed.nav_wrapper:hover {
+    background: #000;
+}
+.fixed.nav_wrapper .navbar_container {
+    height: 55px;
+}
+
 .navbar_container {
     margin: 0 auto;
     width: calc(100% - 40px);
@@ -189,12 +205,13 @@ section.bg_green_light .title {
     margin-right: 5px;
 }
 .navbar_nav a {
-    margin-right: 20px;
+    margin-right: 10px;
     color: rgba(255,255,255,0.8);
     transition:.5s;
 }
 .navbar_nav a:hover {
     color: #fff;
+    text-shadow: 0 0 1px #fff;
 }
 .navbar_toggle {
     display:block;
@@ -283,7 +300,7 @@ p {
     box-shadow: inset 0 0 0 2px #007C87;
 }
 section .slogn {
-    /*margin: 250px auto 0;*/
+    margin: 100px auto 0;
     letter-spacing: 1px;
     /*font-size:100px;*/
     transition: 1.4s;
@@ -663,6 +680,9 @@ section .decorations {
     }
 }
 @media screen and (min-width: 1024px) {
+    .fixed.nav_wrapper {
+        display: block;
+    }
     .content, .columns {
         width: calc(100% - 320px);
     }
@@ -773,6 +793,9 @@ section .decorations {
     }
     h4 {
         font-size: 25px;
+    }
+    .navbar_left .navbar_nav a {
+        margin-right: 20px;
     }
     .Projects .overlayText * {
         display: block;
